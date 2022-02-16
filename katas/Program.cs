@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace katas
+namespace kata
 {
     internal class Program
     {
