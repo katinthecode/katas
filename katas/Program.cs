@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Text;
 
 namespace kata
@@ -116,6 +117,118 @@ namespace kata
 
             return longest;
         }
+
+        public static string AlphabetPosition(string text)
+        {
+            var ans = string.Join(" ", text.Where(x => char.IsLetter(x))
+                                  .Select(x => char.ToUpper(x) - 64));
+
+            return ans.Trim();
+        }
+
+        public static int[,] MultiplicationTable(int size)
+        {
+            var ans = new int[size, size];
+
+            for (int i = 1; i <= size; i++)
+            {
+                for (int j = 1; j <= size; j++)
+                {
+                    ans[i - 1, j - 1] = i * j;
+                }
+            }
+
+            return ans;
+        }
+
+        public static string BreakCamelCase(string str)
+        {
+            // complete the function
+            StringBuilder sb = new StringBuilder();
+
+            foreach (char c in str)
+            {
+                if (char.IsUpper(c))
+                    sb.Append(' ');
+
+                sb.Append(c);
+            }
+
+            return sb.ToString();
+        }
+
+        public static bool lovefunc(int flower1, int flower2)
+        {
+            //Moment of truth...
+            if ((flower1 % 2 == 0 && flower2 % 2 != 0) || (flower1 % 2 != 0 && flower2 % 2 == 0))
+                return true;
+
+            return false;
+        }
+
+        public static int GetVowelCount(string str)
+        {
+            int vowelCount = 0;
+
+            vowelCount += str.Count(f => f == 'a');
+            vowelCount += str.Count(f => f == 'e');
+            vowelCount += str.Count(f => f == 'i');
+            vowelCount += str.Count(f => f == 'o');
+            vowelCount += str.Count(f => f == 'u');
+
+            return vowelCount;
+        }
+
+        public static string AreYouPlayingBanjo(string name)
+        {
+            if (char.ToLower(name[0]).Equals('r'))
+                return name + " plays banjo";
+            else
+                return name + " does not play banjo";
+        }
+
+        public static bool IsLeapYear(int year)
+        {
+            if (year % 4 == 0 && (year % 100 > 0 || year % 400 == 0))
+                return true;
+            return false;
+        }
+
+        public static int century(int number)
+        {
+            double cent = number / 100.00;
+
+            if (number % 100 == 0)
+                return (int)cent;
+            else
+                return (int)cent + 1;
+        }
+
+        public static int basicMath(String op, int v1, int v2)
+        {
+            switch (op)
+            {
+                case "+":
+                    return v1 + v2;
+                case "-":
+                    return v1 - v2;
+                case "*":
+                    return v1 * v2;
+                case "/":
+                    return v1 / v2;
+            }
+            return 0;
+        }
+
+        public static String even_or_odd(int number)
+        {
+            //check if there is no remainder
+            if (number % 2 == 0)
+                return "Even";
+            else
+                return "Odd";
+        }
+
     }
 }
 
